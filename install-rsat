@@ -1,5 +1,5 @@
 # Prerequisites:
-# OS = Windows 10 version 1809
+# OS = Windows 10 Enterprise version 1809
 # Install Windows Optional Feature = Remote Server Administration Tools (RSAT)
 # Administrator PowerShell console = Yes
 
