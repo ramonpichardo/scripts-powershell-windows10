@@ -1,0 +1,10 @@
+# Prerequisites:
+# OS = Windows 10 version 1809
+# Install Windows Optional Feature = Remote Server Administration Tools (RSAT)
+# Administrator PowerShell console = Yes
+
+Set-ExecutionPolicy RemoteSigned
+Get-WindowsCapability -Name RSAT* -Online
+Get-WindowsCapability -Name RSAT* -Online | Select-Object -Property DisplayName, State
+Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability -Online
+Update-Help
