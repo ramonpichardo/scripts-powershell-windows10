@@ -1,4 +1,14 @@
 # Launch an administrative PowerShell session.
+#Requires -RunAsAdministrator
+
+# Verify this script is running in an administrator security context.
+$IsAdmin=[Security.Principal.WindowsIdentity]::GetCurrent()
+If ((New-Object Security.Principal.WindowsPrincipal $IsAdmin).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator) -eq $FALSE)
+{
+      "`nERROR: This script will only run in an administrator context. Run this script after launching a Run As Administrator PowerShell session."
+      pause
+      exit
+}
 
 # Set the execution policy to Remote Signed:
 echo Setting the execution policy to Remote Signed...
