@@ -1,4 +1,4 @@
-# Launch an administrative PowerShell session.
+# Launch this script in an administrative PowerShell session.
 #Requires -RunAsAdministrator
 
 # Verify this script is running in an administrator security context.
@@ -10,9 +10,15 @@ If ((New-Object Security.Principal.WindowsPrincipal $IsAdmin).IsInRole([Security
       exit
 }
 
-# Set the execution policy to Remote Signed:
-echo Setting the execution policy to Remote Signed...
-Set-ExecutionPolicy RemoteSigned 
+# Set the execution policy to RemoteSigned:
+echo Setting the execution policy to RemoteSigned...
+Set-ExecutionPolicy RemoteSigned
+
+# Install Nuget
+Install-PackageProvider Nuget –Force
+
+# Install PowerShellGet
+Install-Module -Name PowerShellGet -Force
 
 # Chocolatey installation procedure to be run in an administrative PowerShell session:
 echo Please wait for the Chocolately installation to complete...
@@ -26,14 +32,14 @@ New-Item -Path "$env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShel
 $hereString = @"
 # Chocolatey profile
 `$ChocolateyProfile = "`$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-	if (Test-Path(`$ChocolateyProfile)) {
-	  Import-Module "`$ChocolateyProfile"
-}
-	"@
+    if (Test-Path(`$ChocolateyProfile)) {
+    Import-Module "`$ChocolateyProfile"
+    }
+"@
 	
 echo $hereString >> $env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
 . $profile
 
 # Install list of infra apps via Chocolatey:
 echo Installing list of apps via the Chocolatey Package Manager...
-choco install chocolatey-core.extension firefox googlechrome adobereader flashplayerplugin flashplayerppapi silverlight jre8 vlc notepadplusplus.install git.install xmind winscp.install filezilla winpcap wireshark rvtools 7zip.install putty.install mRemoteNG terraform -y
+choco install chocolatey-core.extension firefox googlechrome adobereader flashplayerplugin flashplayerppapi silverlight jre8 vlc git.install xmind winscp.install filezilla winpcap wireshark rvtools 7zip.install putty.install mRemoteNG terraform -y
