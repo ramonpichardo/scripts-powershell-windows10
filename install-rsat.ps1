@@ -14,10 +14,10 @@
 Set-ExecutionPolicy RemoteSigned
 
 # View descriptions of all RSAT items
-Get-WindowsCapability -Name RSAT* -Online
+# Get-WindowsCapability -Name RSAT* -Online
 
 # View current installation state of all RSAT items 
-Get-WindowsCapability -Name RSAT* -Online | Select-Object -Property DisplayName, State
+# Get-WindowsCapability -Name RSAT* -Online | Select-Object -Property DisplayName, State
 
 # Install all RSAT items
 Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability -Online
