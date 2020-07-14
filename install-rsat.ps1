@@ -1,12 +1,12 @@
 <# 
 Prerequisites:
-OS = Windows 10 Enterprise version 1809
-Install Windows Optional Feature = Remote Server Administration Tools (RSAT)
-Administrator PowerShell console = Yes
+- OS = Windows 10 Enterprise, build version 1809
+- Install Windows Optional Feature = Remote Server Administration Tools (RSAT)
+- Administrator PowerShell console = Yes
 
 Mitigation for Add-WindowsCapability failure with error code 0x800f0954 :
-1. Run "gpedit.msc" (Local Group Policy Editor) to edit your local computer policy.
-2. Go to "Computer Configuration\Administrative Templates\System\
+1. Run Local Group Policy Editor ("gpedit.msc") as an Administrator to edit your local computer policy.
+2. Go to "Computer Configuration\Administrative Templates\System\".
 3. While the subfolder "System" is selected, find the following policy in the right pane: "Specify settings for optional component installation and component repair".
 4. Double-click the above stated policy or click "Edit policy setting".
 5. Set the policy to "Enabled".
