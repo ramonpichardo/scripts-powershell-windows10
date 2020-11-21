@@ -1,6 +1,6 @@
 <# 
 Prerequisites 1 of 2: System
-- OS = Windows 10 Enterprise, build version 1809
+- OS = Windows 10 Enterprise (tested on build versions 1809 and 1909)
 - Administrator PowerShell console = Yes
 
 Prerequisites 2 of 2: Local Policy Change (Mitigation for Add-WindowsCapability failure with error code 0x800f0954)
