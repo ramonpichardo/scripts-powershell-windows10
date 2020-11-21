@@ -23,7 +23,7 @@ Install-Module -Name PowerShellGet -Force
 # Chocolatey installation procedure to be run in an administrative PowerShell session:
 echo Please wait for the Chocolately installation to complete...
 echo NOTE: If the installation appears to have stalled or stopped posting display output allow 60 seconds to pass and then press the Enter key.
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 # Remediate the error: "WARNING: Not setting tab completion:…"
 echo Remediating the tab completion error...
