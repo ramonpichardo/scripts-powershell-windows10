@@ -42,4 +42,4 @@ echo $hereString >> $env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.Power
 
 # Install list of infra apps via Chocolatey:
 echo Installing list of apps via the Chocolatey Package Manager...
-choco install chocolatey-core.extension firefox googlechrome adobereader jre8 vlc git.install xmind winscp.install filezilla winpcap wireshark rvtools 7zip.install putty.install mRemoteNG terraform -y
+choco install chocolatey-core.extension firefox googlechrome adobereader vlc git.install xmind winscp.install filezilla winpcap wireshark rvtools 7zip.install putty.install mRemoteNG terraform -y
